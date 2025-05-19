@@ -20,17 +20,17 @@ class BlogPostState(SessionState):
     post_publish_active: bool = False
 
     @rx.var
-    def blog_post_id(self):
-        return self.router.page.params.get("blog_id", "")
+    def blog_post_id(self) -> str:
+        return self.router.page.params.get("blog_pid", "")
 
     @rx.var
-    def blog_post_url(self):
+    def blog_post_url(self) -> str:
         if not self.post:
             return f"{BLOG_POSTS_ROUTE}"
         return f"{BLOG_POSTS_ROUTE}/{self.post.id}"
 
     @rx.var
-    def blog_post_edit_url(self):
+    def blog_post_edit_url(self) -> str:
         if not self.post:
             return f"{BLOG_POSTS_ROUTE}"
         return f"{BLOG_POSTS_ROUTE}/{self.post.id}/edit"
