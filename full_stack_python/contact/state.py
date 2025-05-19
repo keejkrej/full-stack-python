@@ -10,7 +10,7 @@ from ..models import ContactEntryModel
 
 class ContactState(SessionState):
     form_data: dict = {}
-    entries: List['ContactEntryModel'] = []
+    entries: List[ContactEntryModel] = []
     did_submit: bool = False
 
     @rx.var

@@ -1,5 +1,5 @@
 from datetime import datetime
-from typing import Optional, List
+from typing import List
 import reflex as rx 
 
 import sqlalchemy
@@ -14,8 +14,8 @@ if ARTICLE_LIST_ROUTE.endswith("/"):
     ARTICLE_LIST_ROUTE = ARTICLE_LIST_ROUTE[:-1]
 
 class ArticlePublicState(SessionState):
-    posts: List['BlogPostModel'] = []
-    post: Optional['BlogPostModel'] = None
+    posts: List[BlogPostModel] = []
+    post: BlogPostModel | None = None
     post_content: str = ""
     post_publish_active: bool = False
     limit: int = 20
